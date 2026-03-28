@@ -16,6 +16,7 @@ import {
   Smartphone,
 } from 'lucide-react';
 import CTASection from '../components/CTASection';
+import DownloadSection from '../components/DownloadSection';
 
 interface LandingPageProps {
   onNavigate: (page: string) => void;
@@ -716,6 +717,7 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
       <FeatureHighlights onNavigate={onNavigate} />
       <TestimonialsSection />
       <PricingTeaser onNavigate={onNavigate} />
+      <DownloadSection />
       <CTASection onNavigate={onNavigate} />
     </div>
   );

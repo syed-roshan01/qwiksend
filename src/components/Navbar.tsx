@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: string;
@@ -73,6 +73,22 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => {
+                onNavigate('home');
+                setTimeout(() => {
+                  document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                scrolled || currentPage !== 'home'
+                  ? 'border border-gray-200 text-gray-700 hover:bg-gray-50'
+                  : 'border border-white/20 text-white hover:bg-white/10'
+              }`}
+            >
+              <Download size={16} />
+              Download
+            </button>
             <a
               href="https://wa.me/917290058166?text=Hey%2C%20how%20can%20I%20get%20more%20info%20on%20this"
               target="_blank"
@@ -113,6 +129,19 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               </button>
             ))}
             <div className="pt-2 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  onNavigate('home');
+                  setMobileOpen(false);
+                  setTimeout(() => {
+                    document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold border border-gray-200 text-gray-700 hover:bg-gray-50"
+              >
+                <Download size={16} />
+                Download
+              </button>
               <a
                 href="https://wa.me/917290058166?text=Hey%2C%20how%20can%20I%20get%20more%20info%20on%20this"
                 target="_blank"
